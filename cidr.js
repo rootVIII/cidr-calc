@@ -73,15 +73,24 @@ class CidrCalc {
 
     getResults() {
         return {
-            networkAddrUInt32: this.networkAddress,
-            networkAddr: this.networkAddress,
-            broadcastAddrUInt32: this.broadcastAddress,
-            broadcastAddr: this.broadcastAddress,
-            subnetMaskUInt32: this.subnetMask,
-            subnetMask: this.subnetMask,
-            subnetBitmap: this.subnetBitmap,
-            wildcard: this.wildcardMask,
-            maxHosts: this.hostsMax,
+            networkAddrUInt32:
+                new DataView(this.networkAddress.buffer).getUint32(0).toString(16).toUpperCase(),
+            networkAddr:
+                this.networkAddress.join('.'),
+            broadcastAddrUInt32:
+                new DataView(this.broadcastAddress.buffer).getUint32(0).toString(16).toUpperCase(),
+            broadcastAddr:
+                this.broadcastAddress.join('.'),
+            subnetMaskUInt32:
+                new DataView(this.subnetMask.buffer).getUint32(0).toString(16).toUpperCase(),
+            subnetMask:
+                this.subnetMask.join('.'),
+            subnetBitmap:
+            this.subnetBitmap,
+            wildcard:
+                this.wildcardMask.join('.'),
+            maxHosts:
+                this.hostsMax,
         };
     }
 
@@ -93,8 +102,7 @@ class CidrCalc {
             0xFF & digit,
         ];
         this.setSubnetMask(shiftU32ToU8Array);
-        const binRepr = new DataView(this.subnetMask.buffer).getUint32(0);
-        this.onBits = Math.clz32(~binRepr);
+        this.onBits = Math.clz32(~new DataView(this.subnetMask.buffer).getUint32(0));
         this.offBits = 0x20 - this.onBits;
         this.setMaxHosts();
 
@@ -143,6 +151,16 @@ function validateInput(address, cidrPrefix) {
     return octets;
 }
 
+function clearStatus() {
+    setTimeout(() => {
+        document.getElementById('statusMessage').innerHTML = '&thinsp;';
+    }, 4000);
+}
+
+function setStatus(msg) {
+    document.getElementById('statusMessage').innerHTML = msg;
+}
+
 // eslint-disable-next-line no-unused-vars
 function calculateCIDR() {
     const cidr = document.getElementById('cidrBlock').value;
@@ -152,11 +170,9 @@ function calculateCIDR() {
     try {
         ipOctets = validateInput(...addr);
     } catch (err) {
-        document.getElementById('statusMessage').innerHTML = err;
         argErr = err;
-        setTimeout(() => {
-            document.getElementById('statusMessage').innerHTML = '&thinsp;';
-        }, 4000);
+        setStatus(err);
+        clearStatus();
     }
 
     if (!(argErr)) {
@@ -164,7 +180,8 @@ function calculateCIDR() {
         cidrCalc.mask().then((results) => {
             console.log(results);
         }).catch((err) => {
-            console.log(err);
+            setStatus(err);
+            clearStatus();
         });
     }
 }
