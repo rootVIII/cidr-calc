@@ -1,12 +1,5 @@
 /*  https://github.com/rootVIII/cidr-calc  */
 
-/*
-// hex values okay as well or int
-let x = new Uint8Array(Uint8Array.from([255, 32, 68,  17]));
-let dv = new DataView(x.buffer)
-console.log((dv.getInt32(0) >>> 0).toString(16))
-*/
-
 class CidrCalc {
     constructor(ip, cidrMask) {
         this.ip = new Uint8Array(Uint8Array.from(ip));
