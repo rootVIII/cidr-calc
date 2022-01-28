@@ -16,8 +16,8 @@
             flex-wrap: wrap;
             min-height: 265px;
             max-height: 270px;
-            max-width: 700px;
-            min-width: 670px;
+            max-width: 600px;
+            min-width: 570px;
             border: 2px solid #4ECFEF;
             border-radius: 25px;
             background: #31313A;
@@ -50,6 +50,7 @@
             color: #ECECEC;
             outline: none;
             padding-left: 0.3em;
+            width: 92%;
         }
         #cidrBlock {
             border: 0;
@@ -63,8 +64,12 @@
             padding-left: 0.5em;
             font-weight: lighter;
         }
+        small {
+            font-weight: lighter;
+            font-size: 10px;
+        }
         button {
-            width: 93%;
+            width: 91%;
             margin: 5px;
         }
         input {
@@ -74,7 +79,7 @@
             background-color: #292B2F;
         }
         #statusMessage {
-            font-size: 10px;
+            font-size: 11px;
             color: #ECECEC;
         }
  </style>
@@ -112,7 +117,7 @@
                 </small>
             </label>
             <br>
-            <input class="display-input" type="text" id="subnetBitmap" size="45" readonly>
+            <input class="display-input" type="text" id="subnetBitmap" readonly>
             <small id="statusMessage">&emsp;</small>
         </div>
     </div>
