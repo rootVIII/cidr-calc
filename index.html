@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>CIDR Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico">
+    <script src="cidr.js" type="text/javascript" defer> </script>
+    <style>
+        .grid-layout{
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 265px;
+            max-height: 270px;
+            max-width: 700px;
+            min-width: 670px;
+            border: 2px solid #4ECFEF;
+            border-radius: 25px;
+            background: #31313A;
+            letter-spacing: 0.1rem;
+            font-family: Arial, sans-serif;
+        }
+        .grid-item-border {
+            border-radius: 3px;
+            height: 80%;
+            overflow:hidden;
+        }
+        .grid-item-sm {
+            margin: 0 0 26px 0;
+            width: 25%;
+        }
+        .grid-item-lg {
+            margin: 0 0 26px 0;
+            width: 50%;
+        }
+        .grid-item-border {
+            border: 0;
+            padding: 5px;
+            margin: 5px;
+            background: #2F2F3A;
+            color: #4EC3FD;
+        }
+        .display-input {
+            background-color : #3B3D40;
+            border: none;
+            color: #ECECEC;
+            outline: none;
+            padding-left: 0.3em;
+        }
+        #cidrBlock {
+            border: 0;
+            padding-left: 0.5em;
+            font-weight: lighter;
+        }
+        #cidrBlock:focus {
+            outline: none;
+            border: 0;
+            box-shadow: 0 0 10px #719ECE;
+            padding-left: 0.5em;
+            font-weight: lighter;
+        }
+        button {
+            width: 93%;
+            margin: 5px;
+        }
+        input {
+            margin-top: 0.5em;
+        }
+        body {
+            background-color: #292B2F;
+        }
+        #statusMessage {
+            font-size: 10px;
+            color: #ECECEC;
+        }
+ </style>
+</head><body>
+
+<div class='grid-layout'>
+
+
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="cidrBlock">
+                <small>
+                    CIDR Range
+                </small>
+            </label>
+            <input type="text" id="cidrBlock" value="192.168.1.1/24" maxlength="20">
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <button type="button" onclick="calculateCIDR()">
+               Calculate
+            </button>
+            <br>
+            <button type="button" onclick="clearForm()">
+               Clear
+            </button>
+        </div>
+    </div>
+    <div class='grid-item-lg'>
+        <div class="grid-item-border">
+            <label for="subnetBitmap">
+                <small>
+                    Subnet Bitmap
+                </small>
+            </label>
+            <br>
+            <input class="display-input" type="text" id="subnetBitmap" size="45" readonly>
+            <small id="statusMessage">&emsp;</small>
+        </div>
+    </div>
+
+
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="networkAddr">
+                <small>
+                    Network Address
+                </small>
+            </label>
+            <input type="text" id="networkAddr" class="display-input" readonly>
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="subnetMask">
+                <small>
+                    Subnet Mask
+                </small>
+            </label>
+            <input type="text" id="subnetMask" class="display-input" readonly>
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="broadcastAddr">
+                <small>
+                    Broadcast Address
+                </small>
+            </label>
+            <input type="text" id="broadcastAddr" class="display-input" readonly>
+        </div>
+   </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="maxHosts">
+                <small>
+                    Max Hosts
+                </small>
+            </label>
+            <input type="text" id="maxHosts" class="display-input" readonly>
+        </div>
+    </div>
+
+
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="networkAddrUInt32">
+                <small>
+                    Network UInt32
+                </small>
+            </label>
+            <input type="text" id="networkAddrUInt32" class="display-input" readonly>
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="subnetMaskUInt32">
+                <small>
+                    Subnet UInt32
+                </small>
+            </label>
+            <input type="text" id="subnetMaskUInt32" class="display-input" readonly>
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="broadcastAddrUInt32">
+                <small>
+                    Broadcast UInt32
+                </small>
+            </label>
+            <input type="text" id="broadcastAddrUInt32" class="display-input" readonly>
+        </div>
+    </div>
+    <div class="grid-item-sm">
+        <div class="grid-item-border">
+            <label for="wildcard">
+                <small>
+                    Wildcard Mask
+                </small>
+            </label>
+            <input type="text" id="wildcard" class="display-input" readonly>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body></html>
