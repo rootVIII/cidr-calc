@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "CIDR-X CIDR Calculator",
+  "version": "1.0",
+  "description": "Calculate network details using CIDR Notation",
+  "icons": {
+    "128": "cidrx-128x128.png",
+    "48": "cidrx-48x48.png",
+    "16": "cidrx-16x16.png"
+  },
+  "author": "rootVIII",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    },
+      "homepage_url": "https://github.com/rootVIII/cidr-calc",
+      "permissions": [
+        "tabs",
+        "bookmarks",
+        "unlimitedStorage"
+      ],
+      "host_permissions": [
+        "http://www.blogger.com/",
+        "http://*.google.com/"
+      ]
+    }
+  }
