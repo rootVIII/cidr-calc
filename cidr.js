@@ -114,7 +114,6 @@ class CidrCalc {
     }
 }
 
-// eslint-disable-next-line no-unused-vars
 function clearForm() {
     document.getElementById('statusMessage').innerHTML = '&thinsp;';
     for (let field of document.getElementsByTagName('input')) {
@@ -161,7 +160,6 @@ function setStatus(msg) {
     document.getElementById('statusMessage').innerHTML = msg;
 }
 
-// eslint-disable-next-line no-unused-vars
 function calculateCIDR() {
     const cidr = document.getElementById('cidrBlock').value;
     const addr = cidr.split('/');
@@ -187,3 +185,11 @@ function calculateCIDR() {
         });
     }
 }
+
+document.getElementById('calculateCidrBtn').addEventListener('click', () => {
+    calculateCIDR();
+});
+
+document.getElementById('clearFormBtn').addEventListener('click', () => {
+    clearForm();
+});
