@@ -1,32 +1,34 @@
 {
-  "manifest_version": 3,
-  "name": "CIDR-X CIDR Calculator",
-  "version": "1.0",
-  "description": "Calculate network details using CIDR Notation",
+    "manifest_version": 3,
+    "name": "CIDR-X CIDR Calculator",
+    "version": "0.1",
+    "description": "Calculate network details using CIDR Notation",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "tabs",
+      "bookmarks",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "https://www.google.com/*"
+    ],
+    "author": "rootVIII",
+    "homepage_url": "https://github.com/rootVIII/cidr-calc",
+    "short_name": "CIDR-X",
+    "action": {
+    "default_popup": "index.html",
+    "default_title": "CIDR-X",
+    "default_icon": {
+      "128": "cidrx-128x128.png",
+      "48": "cidrx-48x48.png",
+      "16": "cidrx-16x16.png"
+    }
+},
   "icons": {
     "128": "cidrx-128x128.png",
     "48": "cidrx-48x48.png",
     "16": "cidrx-16x16.png"
-  },
-  "author": "rootVIII",
-  "background": {
-    "service_worker": "background.js"
-  },
-  "app": {
-    "background": {
-      "scripts": [
-        "background.js"
-      ]
-    },
-      "homepage_url": "https://github.com/rootVIII/cidr-calc",
-      "permissions": [
-        "tabs",
-        "bookmarks",
-        "unlimitedStorage"
-      ],
-      "host_permissions": [
-        "http://www.blogger.com/",
-        "http://*.google.com/"
-      ]
-    }
   }
+}
