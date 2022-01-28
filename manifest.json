@@ -6,14 +6,8 @@
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": [
-      "tabs",
-      "bookmarks",
-      "activeTab"
-    ],
-    "host_permissions": [
-      "https://www.google.com/*"
-    ],
+    "permissions": [],
+    "host_permissions": [],
     "author": "rootVIII",
     "homepage_url": "https://github.com/rootVIII/cidr-calc",
     "short_name": "CIDR-X",
