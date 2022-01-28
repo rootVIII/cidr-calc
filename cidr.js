@@ -178,7 +178,9 @@ function calculateCIDR() {
     if (!(argErr)) {
         const cidrCalc = new CidrCalc(ipOctets, parseInt(addr[1], 10));
         cidrCalc.mask().then((results) => {
-            console.log(results);
+            Object.entries(results).forEach(([elementID, value]) => {
+                document.getElementById(elementID).value = value;
+            });
         }).catch((err) => {
             setStatus(err);
             clearStatus();
