@@ -5,7 +5,7 @@
 
 Codepen: https://codepen.io/rootVIII/pen/oNojXyz
 
-Google Chrome Extension: (App submitted to Google for review)
+Google Chrome Extension: https://chrome.google.com/webstore/detail/cidr-x-cidr-calculator/jbpkfbgmmpibnklabadoopiibolkpejb
 
 <pre>
   <code>
