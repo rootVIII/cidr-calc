@@ -86,7 +86,7 @@ class CidrCalc {
             subnetMask:
                 this.subnetMask.join('.'),
             subnetBitmap:
-            this.subnetBitmap,
+                this.subnetBitmap,
             wildcard:
                 this.wildcardMask.join('.'),
             maxHosts:
